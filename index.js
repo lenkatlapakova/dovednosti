@@ -1,5 +1,4 @@
 console.log('funguju!');
-console.log('funguju!');
 
 const updateSkill = (id, uroven) => {
     const postup = document.querySelector(`#${id} .skill__progress`);
