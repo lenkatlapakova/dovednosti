@@ -1,25 +1,23 @@
 console.log('funguju!');
-function parseDate(dateString) {
-    const casti = dateString.split('.');
-    const den = parseInt(casti[0], 10);
-    const mesic = parseInt(casti[1], 10);
-    const rok = parseInt(casti[2], 10);
-    return { den, mesic, rok }; 
-}
+console.log('funguju!');
 
-function promptDatum() {
-    const zadejDatum = prompt('Zadej datum ve formátu DD.MM.YYYY:');
-    const parsedDate = parseDate(zadejDatum);
-    displayDate(parsedDate);
-}
+const updateSkill = (id, uroven) => {
+    const postup = document.querySelector(`#${id} .skill__progress`);
+    const hodnota = document.querySelector(`#${id} .skill__value`);
 
-function displayDate({ den, mesic, rok }) {
-    document.body.innerHTML += `<p>den ${den} </p>
-    <p>mesic  ${mesic}</p>
-    <p>rok  ${rok}</p>`;
-}
-
-promptDatum();
+    if (uroven >= 0 && uroven <= 100) {
+        postup.style.width = `${uroven}%`;
+        hodnota.textContent = `${uroven} / 100`;
+    } else {
+        document.body.innerHTML+='Zadej číslo v rozsahu od 0 do 100.';
+    }
+};
 
 
+const html = prompt('Zadej úroveň v HTML (0 - 100):');
+const css = prompt('Zadej úroveň v CSS (0 - 100):');
+const javascript = prompt('Zadej úroveň v JavaScriptu (0 - 100):');
 
+updateSkill('skill1', html);
+updateSkill('skill2', css);
+updateSkill('skill3', javascript);
